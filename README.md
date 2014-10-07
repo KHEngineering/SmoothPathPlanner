@@ -99,7 +99,7 @@ fig1.setTitle("Top Down View of FRC Field (24ft x 27ft) \n shows global position
 fig1.setXTic(0, 27, 1);
 fig1.setYTic(0, 24, 1);
 ```
-![](Image/Image2.png)
+![](Images/Image2.png)
 
 The above figure is more useful. It shows the general path we wish the robot to take. Starting at our waypoint {1,1} and ending at {19,12}. This plot is in feet. The real usefulness of the plotter function is the ability to add additional plots to one figure. You can add an unlimited amount of charts using the `addData` method. There are also options to specify line color, and marker color. If you do not wish to have lines or markers, set them to `null`.
 
@@ -107,7 +107,7 @@ Lets add the smooth center path the algorithm calculated to this plot. Which giv
 ```Java
 fig1.addData(path.smoothPath, Color.red, Color.blue);
 ```
-![Alt desc](Image/Image3.png)
+![Alt desc](Images/Image3.png)
 We can see the smooth path algorithm does two things. It creates many more data points and provides smooth transitions around the corners.  The number of data points created is based on the max Time you wish the robot to complete the path, and the time step of the controller. 
 
 We can also add the left and right path trajectories to the plot to provide all the useful information we need in one chart. 
@@ -117,7 +117,7 @@ fig1.addData(path.leftPath, Color.magenta);
 fig1.addData(path.rightPath, Color.magenta);
 ```
 
-![](Image/Image4.png)
+![](Images/Image4.png)
 
 I choose this example for a reason, and we can see some tight turns on the robot in the example. (Maybe too tight) We will fix those later (see section here), but first let’s see what the velocity looks like for this path. 
 
@@ -131,7 +131,7 @@ fig2.setTitle("Velocity Profile for Left and Right Wheels \n Left = Cyan, Right 
 fig2.addData(path.smoothRightVelocity, Color.magenta);
 fig2.addData(path.smoothLeftVelocity, Color.cyan);
 ```
-![](Image/Image5.png)
+![](Images/Image5.png)
 
 
 This is where you need to determine, if the velocities shown can be accomplished by your robot. Looks like the max and min velocity is achievable for most drivetrains so let’s continue. We also note there is a relatively smooth transition between data points. If your velocity isn’t smooth, modify the way points so that it is smooth. The robot will not react well to instant changes in velocity.  Note the total time is 7.2 seconds which is less than the `8` second requirement we provided. If we increase or decrease the time requirement, the magnitude of the velocity will decrease or increase, respectively.
@@ -154,7 +154,7 @@ fig3.setXTic(0, 27, 1);
 fig3.setYTic(0, fieldWidth, 1);
 ```  
 
-![](Image/Image6.png)
+![](Images/Image6.png)
 
 
 We can add the Goal wall, and low goals to the view.
@@ -190,7 +190,7 @@ fig3.addData(rightLowGoal, Color.black);
 double[][] autoLine = new double[][] {{26.5-18,0}, {26.5-18, fieldWidth}};
 fig3.addData(autoLine, Color.black);
 ```
-![](Image/Image7.png)
+![](Images/Image7.png)
 
 Using the above plot, we can create the following waypoint trajectory to replicate the path taken by FRC 254 on Einstein Final Match 3;
 
@@ -222,7 +222,7 @@ Adding all of the other path parameters as well:
 		fig3.addData(path.leftPath, Color.magenta);
 		fig3.addData(path.rightPath, Color.magenta);
 ```
-![](Image/Image9.png)
+![](Images/Image9.png)
 
 
 We also plot the Velocity of this chart:
@@ -238,7 +238,7 @@ We also plot the Velocity of this chart:
 		fig4.addData(path.smoothLeftVelocity, Color.cyan);
 ```
 
-![](Image/Image10.png)
+![](Images/Image10.png)
 
 
 This is actually a really nice velocity curve. The transactions are very smooth for each wheel. Assuming our robot can meet these velocities we will traverse the smooth path in 4.2 seconds and stop! You will notice the left wheel slows down first to allow for the slight left turn in the beginning, and then the right wheel slows down to allow for the slight right turn.
@@ -354,7 +354,7 @@ Alpha controls how close to the original line we wish the smooth points to be. B
 
 Alpha and Beta should be a decimal between 0 and 1. If Alpha is zero regarless of Beta, the output will be a straight line from the starting waypoint to the ending waypoint. 
 
-![]
+![](Imaes/)
 
 Caution: Depending on the combination of the variables, it is very possible to set the parameters such that the algorithm never convergers! So be careful. In general I have found the following settings to be acceptable for converging. However, they are not guranteed and you should test many datasets to be sure, the algorithm will convege to a solution in all your scenarios. If you decide to change the paramters from their defaults. 
 
