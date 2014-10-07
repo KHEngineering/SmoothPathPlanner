@@ -84,7 +84,7 @@ If we want to graph the output of the path above we can do the following and pro
 FalconLinePlot fig1 = new FalconLinePlot(path.nodeOnlyPath,Color.blue,Color.green);
 ```
 
-![](Image/Image1.png)
+![](Images/Image1.png)
 
 The plot above isn’t that helpful. However we can configure it to be more useful to us. Since this is the plot of the global path of the robot. Let’s change the X- and Y- axis to reflect the dimensions of half of the FRC field (24 x 27ft) and lets add some labels and grid lines. 
 
