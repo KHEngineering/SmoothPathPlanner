@@ -211,7 +211,7 @@ Using the above plot, we can create the following waypoint trajectory to replica
 		
 		fig3.addData(path.nodeOnlyPath,Color.blue,Color.green);
 ```
-![](Image/Image8.png)
+![](Images/Image8.png)
 
 
 Adding all of the other path parameters as well:
