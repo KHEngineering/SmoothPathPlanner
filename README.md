@@ -119,7 +119,7 @@ fig1.addData(path.rightPath, Color.magenta);
 
 ![](Images/Image4.png)
 
-I choose this example for a reason, and we can see some tight turns on the robot in the example. (Maybe too tight) We will fix those later (see section here), but first let’s see what the velocity looks like for this path. 
+I choose this example for a reason, and we can see some tight turns on the robot in the example. (Maybe too tight) We will fix those later (todo: see section here), but first let’s see what the velocity looks like for this path. 
 
 ```Java
 FalconLinePlot fig2 = new FalconLinePlot(path.smoothCenterVelocity,null,Color.blue);
