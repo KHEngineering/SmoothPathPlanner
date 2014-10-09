@@ -354,7 +354,7 @@ Alpha controls how close to the original line we wish the smooth points to be. B
 
 Alpha and Beta should be a decimal between 0 and 1. If Alpha is zero regarless of Beta, the output will be a straight line from the starting waypoint to the ending waypoint. 
 
-![](Imaes/)
+TODO: add image of different params
 
 Caution: Depending on the combination of the variables, it is very possible to set the parameters such that the algorithm never convergers! So be careful. In general I have found the following settings to be acceptable for converging. However, they are not guranteed and you should test many datasets to be sure, the algorithm will convege to a solution in all your scenarios. If you decide to change the paramters from their defaults. 
 
@@ -378,3 +378,11 @@ In genral if you must change the parameters Set Beta between 0.1 and 0.4 (Do not
 
 
 <Example of Paths with different Paramters>
+
+Real-Time Course Correction
+============================
+The algorithm also provides what the robots heading should be at each time stamp, based on the global coordinate system. The user can use these headings to correct the robots course. As long as the robot maintains the appropriate headings and velocities of each wheels, the robot will drive the course outlined.
+
+The current implementation of the heading is accumulated, not absolute. This is so that users can use the Gyro class already included with WPI lib (which is also accumulated) as a sensor to detect the robots actual heading and course correct.
+
+> Note: This algorithm doesn't consider pose of the robot. What that means is it doesn't require an initial or final orientation of the robot, and does not gurantee the final orientation. Once you reach the desintation, you may need to then command your chassis to rotate to the desired final heading.
