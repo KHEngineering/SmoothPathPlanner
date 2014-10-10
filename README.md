@@ -385,4 +385,19 @@ The algorithm also provides what the robots heading should be at each time stamp
 
 The current implementation of the heading is accumulated, not absolute. This is so that users can use the Gyro class already included with WPI lib (which is also accumulated) as a sensor to detect the robots actual heading and course correct.
 
+the heading information is stored in member variable `heading`, so to access it one could call
+
+```java
+path.heading[i][0]; //ith time vector for path heading
+path.heading[i][1]; //ith point heading in degrees
+```
+
 > Note: This algorithm doesn't consider pose of the robot. What that means is it doesn't require an initial or final orientation of the robot, and does not gurantee the final orientation. Once you reach the desintation, you may need to then command your chassis to rotate to the desired final heading.
+
+
+Assumptions
+=========================
+1. Robot Chassis is a skid-steer platform
+2. Ground robot is to travel on is considered to be an even plane, with no hills, ramps, bumbs, or other obstacles
+3. Robot has independant speed controllers for both sides of the Robot Chassis, tuned to meet the velocity profile changes
+4. Sufficient time is given for the robot to complete the path. 
