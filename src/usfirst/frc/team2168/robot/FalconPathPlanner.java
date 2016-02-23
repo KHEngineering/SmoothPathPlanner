@@ -593,12 +593,22 @@ public class FalconPathPlanner
 
 	public void setPathBeta(double beta)
 	{
-		pathAlpha = beta;
+		pathBeta = beta;
 	}
 
 	public void setPathTolerance(double tolerance)
 	{
-		pathAlpha = tolerance;
+		pathTolerance = tolerance;
+	}
+	
+	public void setVelocityAlpha(double alpha)
+	{
+		velocityAlpha = alpha;
+	}
+	
+	public void setVelocityBeta(double beta)
+	{
+		velocityBeta = beta;
 	}
 
 	/**
